@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { Apply } from "./components/Apply";
+import { BrowserRouter as Router,
+  Route, Switch } from 'react-router-dom';
+import { Container } from "react-bootstrap";
+import { ApplyForm } from "./components/ApplyForm";
+import { Header } from "./components/Header";
+import { Options } from "./components/Options";
+import { Group } from "./components/Group";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Container>
+      <Router>
+        <Header />
+        <Route exact path="/" component={Apply} />
+        <Route exact path="/apply" component={ApplyForm} />
+        <Route exact path="/options" component={Options} />
+        <Route exact path="/group" component={Group} />
+      </Router>
+    </Container>
+  )
 }
 
 export default App;
